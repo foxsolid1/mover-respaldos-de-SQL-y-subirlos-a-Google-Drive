@@ -1,0 +1,29 @@
+Configurar rclone con tu cuenta de Google Drive siguiendo estas instrucciones.
+
+Para configurar rclone y automatizar la subida de los respaldos a Google Drive, puedes seguir estos pasos básicos:
+
+Instalación de rclone:
+
+Descarga e instala rclone desde su página oficial rclone.org.
+Configuración inicial:
+
+Abre una terminal y ejecuta rclone config para iniciar el proceso de configuración.
+Elige n para crear una nueva conexión y asigna un nombre, por ejemplo, gdrive.
+Selecciona drive como el tipo de almacenamiento.
+Para las credenciales, si no tienes un cliente de Google OAuth 2.0 configurado, puedes dejar en blanco los campos client_id y client_secret. rclone usará los valores por defecto.
+Luego, sigue las instrucciones para autenticarte con tu cuenta de Google usando un navegador. Rclone te proporcionará un enlace para que puedas permitir el acceso a tu Google Drive.
+Si necesitas utilizar Cuentas de Servicio (útil para automatizaciones sin interacción de usuario), puedes crear un archivo JSON con las credenciales desde la consola de Google y usar ese archivo durante la configuración​
+RCLONE
+​
+OHIO SUPERCOMPUTER CENTER
+.
+Prueba de la configuración:
+
+Para verificar que la configuración funciona correctamente, puedes listar los archivos en tu Google Drive con el siguiente comando:
+
+bash 
+
+rclone sync F:\VWYS_2016_BC_2023\FULL gdrive:/backups/VWYS_2016_BC_2023/FULL
+
+Luego, puedes configurar una tarea programada en Windows para ejecutar este script automáticamente después de mover los archivos de las carpetas locales.
+Este enfoque te permitirá integrar tanto la parte de mover los respaldos entre unidades locales como subirlos a Google Drive.
